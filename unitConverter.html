@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        *{
+            font-family: sans-serif;
+            box-sizing: border-box;
+        }
+        .container{
+            width: 400px;
+            display: flex;
+            background-color: rgb(2, 46, 168);
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            padding: 2rem;
+            color: white;
+            font-size: 27px;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+        .container .input{
+            width: 150px;
+            height: 60px;
+            font-size: 28px;
+            border: none;
+            border-radius: 5px;
+            padding: 0px 15px;
+            margin-top: 15px;
+        }
+        .eql , h1{
+            margin: 12px;
+            margin-bottom: -35px;
+        }
+        #title{
+            text-align: center;
+        }
+      p{
+        text-align: center;
+        margin-top: 2px;
+        font-size: 12px;
+      }
+ 
+      .btn{
+        width: 400px;
+        height: 34px;
+        text-align: center;
+        font-size: 19px;
+        background-color: rgb(250, 8, 8);
+        border: none;
+        border-radius: 5px;
+        color: white;
+        cursor: pointer;
+      }
+      .btn:hover{
+        background-color: rgb(255, 5, 159);
+      }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>unit-converter</title>
+</head>
+<body>
+    <h1 id="title">Unit Converter</h1><br><br>
+    <p>Developer by : Semi Labung</p>
+
+    <div class="container">
+       
+        <div class="div1">
+            <label>Feet</label><br>
+            <input type="number" id="feet" class="input" placeholder="00">
+        </div>
+
+        <div class="qul">
+            <h1>=</h1>
+        </div>
+
+        <div class="div1">
+            <label>Inch</label><br>
+            <input type="number" id="inch" class="input" placeholder="00">
+        </div>
+    </div><br>
+    <center>
+    <div>
+        <button onclick="clr()" class="btn" >Clear </button>
+       
+    </div>
+</center>
+
+
+
+    <!-- this comment line below adding the java script code -->
+    <script>
+        let feet = document.getElementById("feet");
+        let inch = document.getElementById("inch");
+
+        feet.addEventListener('input', function(){
+            let f = this.value;
+            let i = f * 12;
+            inch.value = i;
+        });
+
+
+        inch.addEventListener('input', function(){
+            let i = this.value;
+            let f = i/12;
+
+            if(!Number.isInteger(f)){
+                f = f.toFixed(2);
+            };
+
+            feet.value = f;
+        });
+
+// this code for reset function in java script
+function clr() {
+
+    document.getElementById('feet').value='';
+    document.getElementById('inch').value='';
+
+    
+}
+
+
+    </script>
+</body>
+</html>
